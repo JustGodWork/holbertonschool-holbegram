@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
+import 'package:holbegram/screens/login_screen.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -16,10 +18,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      title: 'Holbegram',
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(child: Text('Holbegram ready')),
-      ),
+      home: LoginScreen()
     );
   }
 }
