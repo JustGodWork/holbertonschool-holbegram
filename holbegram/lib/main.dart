@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:holbegram/providers/user_provider.dart';
+import 'package:holbegram/screens/home.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
-
-import 'package:holbegram/screens/login_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,10 +18,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Holbegram',
-      debugShowCheckedModeBanner: false,
-      home: LoginScreen()
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => UserProvider()),
+      ],
+      child: const MaterialApp(
+        title: 'Holbegram',
+        debugShowCheckedModeBanner: false,
+        home: Home(),
+      ),
     );
   }
 }

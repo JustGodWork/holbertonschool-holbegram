@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:holbegram/methods/auth_methods.dart';
+import 'package:holbegram/screens/home.dart';
 import 'package:holbegram/screens/signup_screen.dart';
 import 'package:holbegram/widgets/text_field.dart';
 
@@ -29,15 +30,20 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void login() async {
+    final scaffoldMessenger = ScaffoldMessenger.of(context);
     String res = await AuthMethode().login(
       email: emailController.text,
       password: passwordController.text,
     );
     if (!mounted) return;
     if (res == 'success') {
-      // Navigate to home screen
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => const Home(),
+        ),
+      );
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
+      scaffoldMessenger.showSnackBar(
         SnackBar(
           content: Text(res),
         ),

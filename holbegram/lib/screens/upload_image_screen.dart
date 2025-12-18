@@ -45,6 +45,8 @@ class _AddPictureState extends State<AddPicture> {
       file: _image,
     );
 
+    if (!mounted) return;
+
     if (res == 'success') {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
