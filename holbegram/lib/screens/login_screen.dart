@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:holbegram/methods/auth_methods.dart';
 import 'package:holbegram/screens/signup_screen.dart';
 import 'package:holbegram/widgets/text_field.dart';
 
@@ -25,6 +26,22 @@ class _LoginScreenState extends State<LoginScreen> {
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
+  }
+
+  void login() async {
+    String res = await AuthMethode().login(
+      email: emailController.text,
+      password: passwordController.text,
+    );
+    if (res == 'success') {
+      // Navigate to home screen
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(res),
+        ),
+      );
+    }
   }
 
   @override
@@ -87,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           const Color.fromARGB(218, 226, 37, 24),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: login,
                       child: const Text(
                         'Log in',
                         style: TextStyle(color: Colors.white),
@@ -149,7 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.network(
-                        'https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png',
+                        'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
                         width: 40,
                         height: 40,
                       ),
