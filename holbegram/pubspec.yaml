@@ -39,6 +39,8 @@ dependencies:
   cloudinary_flutter: ^1.3.0
   firebase_core: ^4.3.0
   cloud_firestore: 6.1.1
+  image_picker: ^1.0.4
+  uuid: ^4.2.1
 
 dev_dependencies:
   flutter_test:
