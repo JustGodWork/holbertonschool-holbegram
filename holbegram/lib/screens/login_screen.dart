@@ -166,7 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.network(
-                        'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        'https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png',
                         width: 40,
                         height: 40,
                       ),
